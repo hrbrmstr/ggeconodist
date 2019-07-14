@@ -1,0 +1,18 @@
+Package: ggeconodist
+Type: Package
+Title: ggeconodist title goes here otherwise CRAN checks fail
+Version: 0.1.0
+Date: 2019-07-14
+Authors@R: c( person("Bob", "Rudis", email = "bob@rud.is", role =
+        c("aut", "cre"), comment = c(ORCID = "0000-0001-5670-2640")) )
+Maintainer: Bob Rudis <bob@rud.is>
+Description: A good description goes here otherwise CRAN checks fail.
+URL: https://gitlab.com/hrbrmstr/ggeconodist
+BugReports: https://gitlab.com/hrbrmstr/ggeconodist/issues
+Encoding: UTF-8
+License: AGPL
+Suggests: covr, tinytest
+Depends: R (>= 3.2.0)
+Imports: httr, jsonlite
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
