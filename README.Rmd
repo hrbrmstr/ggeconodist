@@ -20,7 +20,7 @@ Create Diminutive Distribution Charts
 
 ## Description
 
-'The Economist' has a unique boxplot aesthetic for
+'The Economist' has a unique boxplot aesthetic f or
 communicating distrribution characteristics. Tools are provided
 to create similar charts in 'ggplot2'.
 

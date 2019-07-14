@@ -11,7 +11,7 @@ Create Diminutive Distribution Charts
 
 ## Description
 
-‘The Economist’ has a unique boxplot aesthetic for communicating
+‘The Economist’ has a unique boxplot aesthetic f or communicating
 distrribution characteristics. Tools are provided to create similar
 charts in ‘ggplot2’.
 
@@ -35,6 +35,8 @@ The following functions are implemented:
 ## Installation
 
 ``` r
+install.packages("ggeconodist", repos = "https://cinc.rud.is")
+# or
 devtools::install_git("https://git.rud.is/hrbrmstr/ggeconodist.git")
 # or
 devtools::install_git("https://git.sr.ht/~hrbrmstr/ggeconodist")
@@ -42,6 +44,8 @@ devtools::install_git("https://git.sr.ht/~hrbrmstr/ggeconodist")
 devtools::install_gitlab("hrbrmstr/ggeconodist")
 # or
 devtools::install_bitbucket("hrbrmstr/ggeconodist")
+# or
+devtools::install_github("hrbrmstr/ggeconodist")
 ```
 
 ## Usage
