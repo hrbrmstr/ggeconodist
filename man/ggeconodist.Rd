@@ -4,12 +4,11 @@
 \name{ggeconodist}
 \alias{ggeconodist}
 \alias{ggeconodist-package}
-\title{...}
+\title{Create Diminutive Distribution Charts}
 \description{
-\itemize{
-\item URL: \url{https://gitlab.com/hrbrmstr/ggeconodist}
-\item BugReports: \url{https://gitlab.com/hrbrmstr/ggeconodist/issues}
-}
+'The Economist' has a unique boxplot aesthetic for
+communicating distrribution characteristics. Tools are provided
+to create similar charts in 'ggplot2'.
 }
 \seealso{
 Useful links:

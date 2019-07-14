@@ -1,10 +1,10 @@
 ---
 output: rmarkdown::github_document
 editor_options: 
-  chunk_output_type: inline
+  chunk_output_type: console
 ---
 ```{r pkg-knitr-opts, include=FALSE}
-knitr:: sopts_chunk$set(
+knitr::opts_chunk$set(
   collapse = TRUE, fig.retina = 2, message = FALSE, warning = FALSE
 )
 options(width=120)
@@ -16,9 +16,21 @@ options(width=120)
 
 # ggeconodist
 
+Create Diminutive Distribution Charts
+
 ## Description
 
+'The Economist' has a unique boxplot aesthetic for
+communicating distrribution characteristics. Tools are provided
+to create similar charts in 'ggplot2'.
+
+Inspired by: <https://www.economist.com/united-states/2019/06/29/will-transparent-pricing-make-americas-health-care-cheaper>
+
 ## What's Inside The Tin
+
+```{r ingredients, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::describe_ingredients()
+```
 
 The following functions are implemented:
 
@@ -36,6 +48,32 @@ library(ggeconodist)
 # current version
 packageVersion("ggeconodist")
 
+```
+
+### The whole shebang
+
+**YOU WILL NEED** to install [these fonts](https://github.com/economist-components/component-typography) to use the built-in theme. More on how to do that at some point.
+
+```{r}
+ggplot(mammogram_costs, aes(x = city)) +
+  geom_econodist(
+    aes(ymin = tenth, median = median, ymax = ninetieth),
+    stat = "identity", show.legend = TRUE
+  ) +
+  scale_y_continuous(expand = c(0,0), position = "right", limits = range(0, 800)) +
+  coord_flip() +
+  labs(
+    x = NULL, y = NULL,
+    title = "Mammoscams",
+    subtitle = "United States, prices for a mammogram*\nBy metro area, 2016, $",
+    caption = "*For three large insurance companies\nSource: Health Care Cost Institute"
+  ) +
+  theme_econodist() -> gg
+
+grid.newpage()
+left_align(gg, c("subtitle", "title", "caption")) %>% 
+  add_econodist_legend(econodist_legend_grob(), below = "subtitle") %>% 
+  grid.draw()
 ```
 
 ## ggeconodist Metrics

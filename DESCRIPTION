@@ -1,18 +1,22 @@
 Package: ggeconodist
 Type: Package
-Title: ggeconodist title goes here otherwise CRAN checks fail
+Title: Create Diminutive Distribution Charts
 Version: 0.1.0
 Date: 2019-07-14
 Authors@R: c( person("Bob", "Rudis", email = "bob@rud.is", role =
         c("aut", "cre"), comment = c(ORCID = "0000-0001-5670-2640")) )
 Maintainer: Bob Rudis <bob@rud.is>
-Description: A good description goes here otherwise CRAN checks fail.
+Description: 'The Economist' has a unique boxplot aesthetic for
+    communicating distrribution characteristics. Tools are provided
+    to create similar charts in 'ggplot2'.
 URL: https://gitlab.com/hrbrmstr/ggeconodist
 BugReports: https://gitlab.com/hrbrmstr/ggeconodist/issues
 Encoding: UTF-8
-License: AGPL
-Suggests: covr, tinytest
-Depends: R (>= 3.2.0)
-Imports: httr, jsonlite
+License: MIT + file LICENSE
+Suggests: covr, tinytest, scales
+Depends: R (>= 3.2.0), ggplot2 (>= 3.2.0), grid
+Imports: 
+    gtable,
+    magrittr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
