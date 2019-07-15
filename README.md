@@ -136,7 +136,7 @@ gapminder %>%
   ggthemes::scale_fill_tableau(name = NULL) +
   coord_flip() +
   labs(
-    x = "Year"
+    x = "Year", caption = "Example borrowed from @cmdline_tips"
   ) +
   facet_wrap(~continent, nrow = 4) +
   theme_ipsum_rc()
