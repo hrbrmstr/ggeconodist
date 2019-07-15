@@ -139,7 +139,17 @@ gapminder %>%
     x = "Year", caption = "Example borrowed from @cmdline_tips"
   ) +
   facet_wrap(~continent, nrow = 4) +
-  theme_ipsum_rc()
+  theme_ipsum_rc() -> gmgg
+
+grid.newpage()
+gmgg %>% 
+  add_econodist_legend(
+    econodist_legend_grob(
+      tenth_col = "#b07aa1", ninetieth_col = "#591a4f"
+    ), 
+    below = "axis-b-1-4"
+  ) %>% 
+  grid.draw()
 ```
 
 <img src="README_files/figure-gfm/gm-1.png" width="800" />
@@ -148,8 +158,8 @@ gapminder %>%
 
 | Lang | \# Files |  (%) | LoC |  (%) | Blank lines | (%) | \# Lines |  (%) |
 | :--- | -------: | ---: | --: | ---: | ----------: | --: | -------: | ---: |
-| R    |       10 | 0.91 | 377 | 0.86 |          71 | 0.7 |      125 | 0.75 |
-| Rmd  |        1 | 0.09 |  59 | 0.14 |          30 | 0.3 |       42 | 0.25 |
+| R    |       10 | 0.91 | 377 | 0.85 |          71 | 0.7 |      125 | 0.75 |
+| Rmd  |        1 | 0.09 |  68 | 0.15 |          30 | 0.3 |       42 | 0.25 |
 
 ## Code of Conduct
 

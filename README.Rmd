@@ -115,8 +115,17 @@ gapminder %>%
     x = "Year", caption = "Example borrowed from @cmdline_tips"
   ) +
   facet_wrap(~continent, nrow = 4) +
-  theme_ipsum_rc()
+  theme_ipsum_rc() -> gmgg
 
+grid.newpage()
+gmgg %>% 
+  add_econodist_legend(
+    econodist_legend_grob(
+      tenth_col = "#b07aa1", ninetieth_col = "#591a4f"
+    ), 
+    below = "axis-b-1-4"
+  ) %>% 
+  grid.draw()
 ```
 
 ## ggeconodist Metrics
