@@ -88,12 +88,68 @@ left_align(gg, c("subtitle", "title", "caption")) %>%
 
 <img src="README_files/figure-gfm/unnamed-chunk-1-1.png" width="672" />
 
+``` r
+library(dplyr)
+library(patchwork)
+library(hrbrthemes)
+library(gapminder)
+
+p <- ggplot(mpg, aes(class, hwy)) + theme_ipsum_rc()
+
+(p + geom_boxplot()) +
+(p + geom_econodist(width = 0.25)) +
+  plot_layout(ncol = 1)
+```
+
+<img src="README_files/figure-gfm/unnamed-chunk-2-1.png" width="672" />
+
+``` r
+
+(p + geom_boxplot() + coord_flip()) +
+(p + geom_econodist(tenth_col = ft_cols$blue, ninetieth_col = ft_cols$red) +
+   coord_flip()) +
+  plot_layout(ncol = 1)
+```
+
+<img src="README_files/figure-gfm/unnamed-chunk-2-2.png" width="672" />
+
+``` r
+
+(p + geom_boxplot(aes(fill = factor(drv)))) +
+  (p + geom_econodist(aes(fill = factor(drv)))) +
+  plot_layout(ncol = 1)
+```
+
+<img src="README_files/figure-gfm/unnamed-chunk-2-3.png" width="672" />
+
+``` r
+gapminder %>%
+  filter(year %in% c(1952, 1962, 1972, 1982, 1992, 2002)) %>%
+  filter(continent != "Oceania") %>%
+  ggplot(aes(x = factor(year), y = lifeExp, fill = continent)) +
+  geom_econodist(
+    median_point_size = 1.2,
+    tenth_col = "#b07aa1",
+    ninetieth_col = "#591a4f",
+    show.legend = FALSE
+  ) +
+  ggthemes::scale_fill_tableau(name = NULL) +
+  coord_flip() +
+  labs(
+    x = "Year"
+  ) +
+  facet_wrap(~continent, nrow = 4) +
+  theme_ipsum_rc()
+```
+
+<img src="README_files/figure-gfm/gm-1.png" width="800" />
+
 ## ggeconodist Metrics
 
-| Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
-| :--- | -------: | ---: | --: | ---: | ----------: | ---: | -------: | ---: |
-| R    |       10 | 0.91 | 338 | 0.93 |          68 | 0.75 |      125 | 0.77 |
-| Rmd  |        1 | 0.09 |  27 | 0.07 |          23 | 0.25 |       38 | 0.23 |
+| Lang | \# Files |  (%) | LoC |  (%) | Blank lines | (%) | \# Lines |  (%) |
+| :--- | -------: | ---: | --: | ---: | ----------: | --: | -------: | ---: |
+| R    |       10 | 0.91 | 377 | 0.86 |          71 | 0.7 |      125 | 0.75 |
+| Rmd  |        1 | 0.09 |  59 | 0.14 |          30 | 0.3 |       42 | 0.25 |
 
 ## Code of Conduct
 
