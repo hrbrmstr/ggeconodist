@@ -59,7 +59,7 @@ StatEconodist <- ggproto(
     qs <- c(0.10, 0.5, 0.90)
 
     stats <- as.numeric(stats::quantile(data$y, qs))
-    names(stats) <- c("tenth", "median", "ninetieth")
+    names(stats) <- c("ymin", "median", "ymax")
 
     if (length(unique(data$x)) > 1) width <- diff(range(data$x)) * 0.9
 

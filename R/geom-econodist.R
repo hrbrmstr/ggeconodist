@@ -1,3 +1,43 @@
+draw_key_econodist <- function(data, params, size) {
+
+  grobTree(
+    rectGrob(
+      height = 0.5, width = 0.75,
+      gp = gpar(
+        fill = alpha(
+          data$fill %||% params$fill %||% NA,
+          data$alpha %||% params$alpha %||% NA
+        ),
+        col = data$colour %||% params$colour %||% NA
+      )
+    ),
+    pointsGrob(
+      x = 0.5, y = 0.5, size = unit(0.25, "npc"),
+      pch = data$shape,
+      gp = gpar(
+        col = data$median_col %||% params$median_col %||% NA
+      )
+    ),
+    rectGrob(
+      x = 0.25,
+      height = 0.75, width = 0.125,
+      gp = gpar(
+        fill = data$tenth_col %||% params$tenth_col %||% NA,
+        col = NA
+      )
+    ),
+    rectGrob(
+      x = 0.75,
+      height = 0.75, width = 0.125,
+      gp = gpar(
+        fill = data$ninetieth_col %||% params$ninetieth_col %||% NA,
+        col = NA
+      )
+    )
+  )
+
+}
+
 #' Econodist geom / stat
 #'
 #' Like [ggplot2::geom_boxplot()] you can either pass in pre-computed
@@ -54,8 +94,10 @@
 #'   labs(
 #'     x = NULL, y = NULL
 #'   )
-geom_econodist <- function(mapping = NULL, data = NULL,
-                           stat = "econodist", position = "dodge2",
+geom_econodist <- function(mapping = NULL,
+                           data = NULL,
+                           stat = "econodist",
+                           position = "dodge2",
                            tenth_col = econ_tenth,
                            median_col = econ_median,
                            ninetieth_col = econ_ninetieth,
@@ -176,6 +218,6 @@ GeomEconodist <- ggproto(
 
   },
 
-  draw_key = ggplot2::draw_key_boxplot
+  draw_key = draw_key_econodist
 
 )
