@@ -24,11 +24,14 @@ left_align <- function(gg, components){
 #' @family Econodist legend helpers
 #' @export
 econodist_legend_grob <- function(family = "EconSansCndLig",
-                             label_size = 10,
-                             tenth_col = econ_tenth,
-                             med_col = econ_median,
-                             ninetieth_col = econ_ninetieth,
-                             label_col = econ_text_col) {
+                                  label_size = 10,
+                                  tenth_lab = "10th percentile",
+                                  tenth_col = econ_tenth,
+                                  med_lab = "Median",
+                                  med_col = econ_median,
+                                  ninetieth_lab = "90th percentile",
+                                  ninetieth_col = econ_ninetieth,
+                                  label_col = econ_text_col) {
 
   x_pos <- unit(4, "points")
   y_pos <- unit(label_size / 2, "points")
@@ -49,7 +52,7 @@ econodist_legend_grob <- function(family = "EconSansCndLig",
   x_pos <- x_pos + convertUnit(grobWidth(tenth_seg), "points") + unit(6, "points")
 
   textGrob(
-    label = "10th percentile",
+    label = tenth_lab,
     x = x_pos, y = y_pos,
     hjust = 0, vjust = 0.5,
     gp = gpar(
@@ -73,7 +76,7 @@ econodist_legend_grob <- function(family = "EconSansCndLig",
   x_pos <- x_pos + convertUnit(grobWidth(med_pt), "points") + unit(8, "points")
 
   textGrob(
-    label = "Median",
+    label = med_lab,
     x = x_pos, y = y_pos,
     hjust = 0, vjust = 0.5,
     gp = gpar(
@@ -99,7 +102,7 @@ econodist_legend_grob <- function(family = "EconSansCndLig",
   x_pos <- x_pos + grobWidth(ninth_seg)  + unit(8, "points")
 
   textGrob(
-    label = "90th percentile",
+    label = ninetieth_lab,
     x = x_pos, y = y_pos,
     hjust = 0, vjust = 0.5,
     gp = gpar(
@@ -109,16 +112,19 @@ econodist_legend_grob <- function(family = "EconSansCndLig",
     )
   ) -> ninth_text
 
-  vp <- viewport(default.units = "points")
+  width <- x_pos + grobWidth(ninth_text)
+
+  vp <- viewport(x = 0, just = "left", default.units = "points", width = width)
 
   gTree(
-    name = "econodist_legend",
+    name = "econodist-legend",
     children = gList(
       tenth_seg, tenth_text,
       med_pt, med_text,
       ninth_seg, ninth_text
     ),
-    childrenvp = vp
+    childrenvp = vp,
+    vp = viewport(x = 0, just = "left", width = width)
   )
 
 }
@@ -128,23 +134,46 @@ econodist_legend_grob <- function(family = "EconSansCndLig",
 #' @param gg ggplot2 plot object to add
 #' @param legend legend grob (any grob, really)
 #' @param below which named gtable element to stick it below?
+#' @param just legend position: "`left`" (aligned with left veritcal axis),
+#'        "`center`" (center of plot panel), or "`right`" (aligned with right
+#'        vertical axis). Uses [pmatch()] so partial matching is supported.
 #' @param legend_height height of the legend row
 #' @param spacer height of the spacer that is put below `legend`?
 #' @family Econodist legend helpers
 #' @export
 add_econodist_legend <- function(gg, legend, below = "subtitle",
+                                 just = c("left", "center", "right"),
                                  legend_height = unit(16, "points"),
                                  spacer = unit(10, "points")) {
+
+  choices <- c("left", "center", "right")
+  just <- choices[pmatch(just[1], choices, duplicates.ok = FALSE)]
 
   if (!inherits(gg, "gtable")) gg <- ggplot2::ggplotGrob(gg)
 
   st <- gg$layout[gg$layout$name == below,]
+
   gtable::gtable_add_rows(
     gtable::gtable_add_grob(
       gtable::gtable_add_rows(gg, legend_height, st$b),
-      legend, t = st$b + 1, l = st$l, b = st$b + 1, r = st$r
+      legend, t = st$b + 1, l = st$l, b = st$b + 1, r = st$r,
+      name = "econodist-legend"
     ),
     spacer, st$b + 1
+  ) -> gg2
+
+  w <- gg2$grobs[[which(gg2$layout$name == "econodist-legend")]]$vp$width
+  hw <- unit(as.numeric(convertUnit(w, "points"))/2, "points")
+  switch(
+    just,
+    left = gg2$grobs[[which(gg2$layout$name == "econodist-legend")]]$vp$x <-
+      unit(0, "npc"),
+    right = gg2$grobs[[which(gg2$layout$name == "econodist-legend")]]$vp$x <-
+      unit(1, "npc") - w,
+    center = gg2$grobs[[which(gg2$layout$name == "econodist-legend")]]$vp$x <-
+      unit(0.5, "npc") - hw
   )
+
+  gg2
 
 }

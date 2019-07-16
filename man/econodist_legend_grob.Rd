@@ -5,8 +5,10 @@
 \title{Create a legend grob that can be used with econodist charts}
 \usage{
 econodist_legend_grob(family = "EconSansCndLig", label_size = 10,
-  tenth_col = econ_tenth, med_col = econ_median,
-  ninetieth_col = econ_ninetieth, label_col = econ_text_col)
+  tenth_lab = "10th percentile", tenth_col = econ_tenth,
+  med_lab = "Median", med_col = econ_median,
+  ninetieth_lab = "90th percentile", ninetieth_col = econ_ninetieth,
+  label_col = econ_text_col)
 }
 \arguments{
 \item{family}{font family}

@@ -4,8 +4,9 @@
 \alias{add_econodist_legend}
 \title{Helper utility to get an econodist legend into a ggplot2 plot}
 \usage{
-add_econodist_legend(gg, legend, below = "subtitle",
-  legend_height = unit(16, "points"), spacer = unit(10, "points"))
+add_econodist_legend(gg, legend, below = "subtitle", just = c("left",
+  "center", "right"), legend_height = unit(16, "points"),
+  spacer = unit(10, "points"))
 }
 \arguments{
 \item{gg}{ggplot2 plot object to add}
@@ -13,6 +14,10 @@ add_econodist_legend(gg, legend, below = "subtitle",
 \item{legend}{legend grob (any grob, really)}
 
 \item{below}{which named gtable element to stick it below?}
+
+\item{just}{legend position: "\code{left}" (aligned with left veritcal axis),
+"\code{center}" (center of plot panel), or "\code{right}" (aligned with right
+vertical axis). Uses \code{\link[=pmatch]{pmatch()}} so partial matching is supported.}
 
 \item{legend_height}{height of the legend row}
 
