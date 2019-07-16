@@ -19,8 +19,8 @@ theme_econodist <- function(econ_text_col = "#3b454a",
   theme_minimal(base_family = econ_font) +
     theme(
       plot.title = element_text(family = bold_font),
-      plot.subtitle = element_text(family = light_font, 12),
-      plot.caption = element_text(family = light_font, 10, colour = econ_text_col, lineheight = 1.1),
+      plot.subtitle = element_text(family = light_font, size = 12, margin = margin(t = -5)),
+      plot.caption = element_text(family = light_font, size = 10, colour = econ_text_col, lineheight = 1.1),
       plot.background = element_rect(fill = econ_plot_bg_col, colour = econ_plot_bg_col),
       panel.background = element_rect(fill = econ_plot_bg_col, colour = econ_plot_bg_col),
       axis.ticks = element_blank(),
