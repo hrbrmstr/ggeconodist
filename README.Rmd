@@ -112,7 +112,8 @@ gapminder %>%
   ggthemes::scale_fill_tableau(name = NULL) +
   coord_flip() +
   labs(
-    x = "Year", caption = "Example borrowed from @cmdline_tips"
+    x = "Year", title = "Life Expectancy", y = NULL,
+    caption = "Example borrowed from @cmdline_tips"
   ) +
   facet_wrap(~continent, nrow = 4) +
   theme_ipsum_rc() -> gmgg
@@ -121,9 +122,11 @@ grid.newpage()
 gmgg %>% 
   add_econodist_legend(
     econodist_legend_grob(
-      tenth_col = "#b07aa1", ninetieth_col = "#591a4f"
+      tenth_col = "#b07aa1",
+      ninetieth_col = "#591a4f",
     ), 
-    below = "axis-b-1-4"
+    below = "axis-b-1-4", 
+    just = "right"
   ) %>% 
   grid.draw()
 ```

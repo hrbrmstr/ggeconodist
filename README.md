@@ -136,7 +136,8 @@ gapminder %>%
   ggthemes::scale_fill_tableau(name = NULL) +
   coord_flip() +
   labs(
-    x = "Year", caption = "Example borrowed from @cmdline_tips"
+    x = "Year", title = "Life Expectancy", y = NULL,
+    caption = "Example borrowed from @cmdline_tips"
   ) +
   facet_wrap(~continent, nrow = 4) +
   theme_ipsum_rc() -> gmgg
@@ -145,9 +146,11 @@ grid.newpage()
 gmgg %>% 
   add_econodist_legend(
     econodist_legend_grob(
-      tenth_col = "#b07aa1", ninetieth_col = "#591a4f"
+      tenth_col = "#b07aa1",
+      ninetieth_col = "#591a4f",
     ), 
-    below = "axis-b-1-4"
+    below = "axis-b-1-4", 
+    just = "right"
   ) %>% 
   grid.draw()
 ```
@@ -156,10 +159,10 @@ gmgg %>%
 
 ## ggeconodist Metrics
 
-| Lang | \# Files |  (%) | LoC |  (%) | Blank lines | (%) | \# Lines |  (%) |
-| :--- | -------: | ---: | --: | ---: | ----------: | --: | -------: | ---: |
-| R    |       10 | 0.91 | 377 | 0.85 |          71 | 0.7 |      125 | 0.75 |
-| Rmd  |        1 | 0.09 |  68 | 0.15 |          30 | 0.3 |       42 | 0.25 |
+| Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
+| :--- | -------: | ---: | --: | ---: | ----------: | ---: | -------: | ---: |
+| R    |       10 | 0.91 | 398 | 0.85 |          76 | 0.72 |      128 | 0.75 |
+| Rmd  |        1 | 0.09 |  71 | 0.15 |          30 | 0.28 |       42 | 0.25 |
 
 ## Code of Conduct
 
