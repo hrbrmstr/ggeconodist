@@ -17,9 +17,9 @@ left_align <- function(gg, components){
 #'
 #' @param family font family
 #' @param label_size size of legend text
-#' @param tenth_col color for the tenth bar
-#' @param med_col color for the median point
-#' @param ninetieth_col color for the ninetieth bar
+#' @param tenth_lab,tenth_col label & color for the tenth bar
+#' @param med_lab,med_col label & color for the median point
+#' @param ninetieth_lab,ninetieth_col lanbel & color for the ninetieth bar
 #' @param label_col color of the legend text
 #' @family Econodist legend helpers
 #' @export
