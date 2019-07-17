@@ -81,10 +81,19 @@ statistics.
 \examples{
 ggplot(mammogram_costs, aes(x = city)) +
   geom_econodist(
-    aes(ymin = tenth, median = median, ymax = ninetieth),
+    aes(
+      ymin = tenth,
+      median = median,
+      ymax = ninetieth
+   ),
     stat = "identity",
   ) +
-  scale_y_comma(expand = c(0,0), position = "right", limits = range(0, 800)) +
+  scale_y_continuous(
+    expand = c(0,0),
+    position = "right",
+    limits = range(0, 800),
+    label = scales::comma
+  ) +
   coord_flip() +
   labs(
     x = NULL, y = NULL

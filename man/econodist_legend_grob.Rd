@@ -15,11 +15,11 @@ econodist_legend_grob(family = "EconSansCndLig", label_size = 10,
 
 \item{label_size}{size of legend text}
 
-\item{tenth_col}{color for the tenth bar}
+\item{tenth_lab, tenth_col}{label & color for the tenth bar}
 
-\item{med_col}{color for the median point}
+\item{med_lab, med_col}{label & color for the median point}
 
-\item{ninetieth_col}{color for the ninetieth bar}
+\item{ninetieth_lab, ninetieth_col}{lanbel & color for the ninetieth bar}
 
 \item{label_col}{color of the legend text}
 }
