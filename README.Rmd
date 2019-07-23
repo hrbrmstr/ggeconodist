@@ -4,15 +4,12 @@ editor_options:
   chunk_output_type: console
 ---
 ```{r pkg-knitr-opts, include=FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE, fig.retina = 2, message = FALSE, warning = FALSE
-)
-options(width=120)
+hrbrpkghelpr::global_opts()
 ```
 
-[![Travis-CI Build Status](https://travis-ci.org/hrbrmstr/ggeconodist.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggeconodist) 
-[![Coverage Status](https://codecov.io/gh/hrbrmstr/ggeconodist/branch/master/graph/badge.svg)](https://codecov.io/gh/hrbrmstr/ggeconodist)
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/ggeconodist)](https://cran.r-project.org/package=ggeconodist)
+```{r badges, results='asis', echo=FALSE, cache=FALSE}
+hrbrpkghelpr::stinking_badges()
+```
 
 # ggeconodist
 
@@ -36,7 +33,7 @@ The following functions are implemented:
 
 ## Installation
 
-```{r install-ex, results='asis', echo = FALSE}
+```{r install-ex, results='asis', echo=FALSE, cache=FALSE}
 hrbrpkghelpr::install_block()
 ```
 
@@ -54,7 +51,7 @@ packageVersion("ggeconodist")
 
 **YOU WILL NEED** to install [these fonts](https://github.com/economist-components/component-typography) to use the built-in theme. More on how to do that at some point.
 
-```{r}
+```{r mam}
 ggplot(mammogram_costs, aes(x = city)) +
   geom_econodist(
     aes(ymin = tenth, median = median, ymax = ninetieth),
@@ -76,7 +73,7 @@ left_align(gg, c("subtitle", "title", "caption")) %>%
   grid.draw()
 ```
 
-```{r}
+```{r mpg}
 library(dplyr)
 library(patchwork)
 library(hrbrthemes)
@@ -133,11 +130,10 @@ gmgg %>%
 
 ## ggeconodist Metrics
 
-```{r cloc, echo=FALSE}
+```{r cloc, echo = FALSE}
 cloc::cloc_pkg_md()
 ```
 
 ## Code of Conduct
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
-By participating in this project you agree to abide by its terms.
+Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.

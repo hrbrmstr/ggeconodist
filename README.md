@@ -1,9 +1,18 @@
 
-[![Travis-CI Build
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Signed
+by](https://img.shields.io/badge/Keybase-Verified-brightgreen.svg)](https://keybase.io/hrbrmstr)
+![Signed commit
+%](https://img.shields.io/badge/Signed_Commits-100%25-lightgrey.svg)
+[![Linux build
 Status](https://travis-ci.org/hrbrmstr/ggeconodist.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggeconodist)
 [![Coverage
 Status](https://codecov.io/gh/hrbrmstr/ggeconodist/branch/master/graph/badge.svg)](https://codecov.io/gh/hrbrmstr/ggeconodist)
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/ggeconodist)](https://cran.r-project.org/package=ggeconodist)
+![Minimal R
+Version](https://img.shields.io/badge/R%3E%3D-3.2.0-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 # ggeconodist
 
@@ -37,16 +46,19 @@ The following functions are implemented:
 ``` r
 install.packages("ggeconodist", repos = "https://cinc.rud.is")
 # or
-devtools::install_git("https://git.rud.is/hrbrmstr/ggeconodist.git")
+remotes::install_git("https://git.rud.is/hrbrmstr/ggeconodist.git")
 # or
-devtools::install_git("https://git.sr.ht/~hrbrmstr/ggeconodist")
+remotes::install_git("https://git.sr.ht/~hrbrmstr/ggeconodist")
 # or
-devtools::install_gitlab("hrbrmstr/ggeconodist")
+remotes::install_gitlab("hrbrmstr/ggeconodist")
 # or
-devtools::install_bitbucket("hrbrmstr/ggeconodist")
+remotes::install_bitbucket("hrbrmstr/ggeconodist")
 # or
-devtools::install_github("hrbrmstr/ggeconodist")
+remotes::install_github("hrbrmstr/ggeconodist")
 ```
+
+NOTE: To use the ‘remotes’ install options you will need to have the
+[{remotes} package](https://github.com/r-lib/remotes) installed.
 
 ## Usage
 
@@ -86,7 +98,7 @@ left_align(gg, c("subtitle", "title", "caption")) %>%
   grid.draw()
 ```
 
-<img src="README_files/figure-gfm/unnamed-chunk-1-1.png" width="672" />
+<img src="man/figures/README-mam-1.png" width="672" />
 
 ``` r
 library(dplyr)
@@ -101,7 +113,7 @@ p <- ggplot(mpg, aes(class, hwy)) + theme_ipsum_rc()
   plot_layout(ncol = 1)
 ```
 
-<img src="README_files/figure-gfm/unnamed-chunk-2-1.png" width="672" />
+<img src="man/figures/README-mpg-1.png" width="672" />
 
 ``` r
 
@@ -111,7 +123,7 @@ p <- ggplot(mpg, aes(class, hwy)) + theme_ipsum_rc()
   plot_layout(ncol = 1)
 ```
 
-<img src="README_files/figure-gfm/unnamed-chunk-2-2.png" width="672" />
+<img src="man/figures/README-mpg-2.png" width="672" />
 
 ``` r
 
@@ -120,7 +132,7 @@ p <- ggplot(mpg, aes(class, hwy)) + theme_ipsum_rc()
   plot_layout(ncol = 1)
 ```
 
-<img src="README_files/figure-gfm/unnamed-chunk-2-3.png" width="672" />
+<img src="man/figures/README-mpg-3.png" width="672" />
 
 ``` r
 gapminder %>%
@@ -155,17 +167,17 @@ gmgg %>%
   grid.draw()
 ```
 
-<img src="README_files/figure-gfm/gm-1.png" width="800" />
+<img src="man/figures/README-gm-1.png" width="800" />
 
 ## ggeconodist Metrics
 
 | Lang | \# Files |  (%) | LoC |  (%) | Blank lines |  (%) | \# Lines |  (%) |
 | :--- | -------: | ---: | --: | ---: | ----------: | ---: | -------: | ---: |
-| R    |       10 | 0.91 | 398 | 0.85 |          76 | 0.72 |      128 | 0.75 |
-| Rmd  |        1 | 0.09 |  71 | 0.15 |          30 | 0.28 |       42 | 0.25 |
+| R    |       10 | 0.91 | 398 | 0.85 |          76 | 0.72 |      137 | 0.77 |
+| Rmd  |        1 | 0.09 |  69 | 0.15 |          30 | 0.28 |       40 | 0.23 |
 
 ## Code of Conduct
 
-Please note that this project is released with a [Contributor Code of
-Conduct](CONDUCT.md). By participating in this project you agree to
-abide by its terms.
+Please note that this project is released with a Contributor Code of
+Conduct. By participating in this project you agree to abide by its
+terms.
