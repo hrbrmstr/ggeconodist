@@ -20,8 +20,8 @@ Create Diminutive Distribution Charts
 
 ## Description
 
-‘The Economist’ has a unique boxplot aesthetic f or communicating
-distrribution characteristics. Tools are provided to create similar
+‘The Economist’ has a unique boxplot aesthetic for communicating
+distribution characteristics. Tools are provided to create similar
 charts in ‘ggplot2’.
 
 Inspired by:
@@ -35,7 +35,7 @@ Inspired by:
     econodist charts
   - `geom_econodist`: Econodist geom / stat
   - `left_align`: Helper to flush ggplot2 plot components to the left
-  - `mammogram_costs`: Cost of a mammogram in various U.S. Citites
+  - `mammogram_costs`: Cost of a mammogram in various U.S. Cities
     (2016, USD)
   - `theme_econodist`: A more current Economist-style ggplot2 theme
 
